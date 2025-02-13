@@ -1,0 +1,112 @@
+/* Container principal */
+.conteinerCadastroUsuariosGeral {
+  width: 100%;
+  max-width: 600px;
+  height: auto;  /* Deixa o container mais flexível */
+  margin: 0 auto;
+  padding: 30px 40px;  /* Aumenta o padding para mais conforto */
+  border: 1px solid #ffffff;
+  border-radius: 20px;  /* Bordas arredondadas mais suaves */
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* Box-shadow mais sutil */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  /* Centraliza o conteúdo */
+  text-align: center;
+}
+
+/* Estilo para o título */
+h1 {
+  font-size: 26px;  /* Tamanho maior para dar mais destaque */
+  color: #3a3b7c;
+  margin-bottom: 20px;
+}
+
+/* Estilo para os inputs */
+input, select {
+  width: 100%;
+  padding: 12px;  /* Aumentei o padding para mais conforto */
+  font-size: 16px;  /* Tamanho maior da fonte */
+  border: 1px solid #ddd;  /* Borda mais suave */
+  border-radius: 6px;  /* Bordas arredondadas */
+  background-color: #f7f7f7;  /* Fundo mais claro */
+  box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out;  /* Suaviza a transição ao focar */
+  margin-bottom: 20px;  /* Adiciona espaçamento entre os campos */
+}
+
+input:focus, select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Estilo para o botão de envio */
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;  /* Espaçamento superior */
+}
+
+button:hover {
+  background-color: #0056b3;  /* Cor ao passar o mouse */
+}
+
+button:active {
+  background-color: #004085;  /* Cor ao clicar */
+}
+
+/* Estilo para o link "Voltar" */
+.buttonVoltar {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #007bff;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s ease-in-out;
+}
+
+.buttonVoltar:hover {
+  text-decoration: underline;
+  color: #0056b3;  /* Cor ao passar o mouse */
+}
+
+/* Estilo para o formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Divs dentro do formulário */
+form div {
+  margin-bottom: 20px;
+}
+
+/* Estilo para os labels (não utilizado diretamente no código, mas pode ser adicionado ao formulário) */
+label {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Estilo para parágrafos e links */
+p {
+  font-size: 14px;
+  color: #333;
+}
+
+p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}

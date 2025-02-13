@@ -1,0 +1,89 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  //provider = "postgresql"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model CadastroUsuarios {
+  id String @id @default(uuid())
+  nome String
+  cpf String @unique
+  telefone String
+  email String
+  senha String
+
+  fazerReserva FazerReserva[]
+
+
+  create_at DateTime? @default(now())
+  update_at DateTime @default(now())
+
+  @@map("cadastro_usuarios")
+}
+
+model CadExcursoes {
+  id String @id @default(uuid())
+  nome String
+  descricao String
+  data String
+  preco String
+  local String
+  disponibilidade String
+
+  fazerReserva FazerReserva[]
+
+  create_at DateTime? @default(now())
+  update_at DateTime @default(now())
+
+  @@map("cadastro_excursoes")
+}
+
+model CadastroFuncionarios {
+  id String @id @default(uuid())
+  nome String
+  cpf String @unique
+  telefone String
+  email String
+
+  hierarquia CadastroHierarquia @relation(fields: [idHierarquia], references: [id])
+  idHierarquia String 
+  
+
+  create_at DateTime? @default(now())
+  update_at DateTime @default(now())
+
+  @@map("cadastro_funcionarios")  
+}
+
+model CadastroHierarquia {
+  id String @id @default(uuid())
+  nome String @unique
+  descricao String
+
+  cadastroFuncionarios CadastroFuncionarios[]
+
+  create_at DateTime? @default(now())
+  update_at DateTime @default(now())
+
+  @@map("cadastro_hierarquia")
+}
+
+model FazerReserva {
+  id String @id @default(uuid())
+  data String
+
+  excursoes CadExcursoes @relation(fields: [idExcursao], references: [id])
+  idExcursao String
+  
+  usuario CadastroUsuarios @relation(fields: [idUsuario], references: [id])
+  idUsuario String
+  
+  create_at DateTime? @default(now())
+  update_at DateTime @default(now())
+
+  @@map("fazer_reserva")
+}
