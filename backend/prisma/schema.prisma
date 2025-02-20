@@ -33,6 +33,7 @@ model CadExcursoes {
   preco String
   local String
   disponibilidade String
+  banner String
 
   fazerReserva FazerReserva[]
 

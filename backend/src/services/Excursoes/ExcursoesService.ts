@@ -8,10 +8,11 @@ interface CadExcursoes{
     local: string
     preco: string
     disponibilidade: string
+    banner: string
 }
 
 class ExcursoesServices {
-    async adicionar_excursoes ({nome, descricao, data, local, preco, disponibilidade}: CadExcursoes)
+    async adicionar_excursoes ({nome, descricao, data, local, preco, disponibilidade, banner}: CadExcursoes)
     {
      const resposta = await prismaClient.cadExcursoes.create({
         data:{
@@ -20,7 +21,8 @@ class ExcursoesServices {
             data: data,
             local: local,
             preco: preco,
-            disponibilidade: disponibilidade
+            disponibilidade: disponibilidade,
+            banner: banner
         }
      })
      return ({dados: 'Excursão Adicionada com Sucesso'})
@@ -31,7 +33,8 @@ class ExcursoesServices {
             nome: true,
             descricao: true,
             data: true,
-            preco: true
+            preco: true,
+            banner: true
         }
     })
     return resposta

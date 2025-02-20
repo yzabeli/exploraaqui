@@ -3,7 +3,7 @@ import { ExcursoesServices } from "../../services/Excursoes/ExcursoesService";
 
 class ExcursoesControllers{
     async cadastro_Excursoes (req: Request, res: Response){
-        const {nome, descricao, data, local, preco, disponibilidade} = req.body
+        const {nome, descricao, data, local, preco, disponibilidade, banner} = req.body
         const excursoesService = new ExcursoesServices()
         const resposta = await excursoesService.adicionar_excursoes({
             nome,
@@ -11,7 +11,8 @@ class ExcursoesControllers{
             data,
             local,
             preco,
-            disponibilidade
+            disponibilidade,
+            banner
         })
         return res.json(resposta)
     }
