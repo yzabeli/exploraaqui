@@ -1,4 +1,7 @@
 import { Router } from 'express'
+import multer from 'multer'
+import upLoandConfig from './config/multer'
+
 
 import { UsuariosControllers } from './Controller/Usuarios/UsuariosControllers'
 import { ExcursoesControllers } from './Controller/Excursoes/ExcursoesControllers'
@@ -8,10 +11,10 @@ import { ReservaControllers } from './Controller/Reserva/ReservaControllers'
 import { LoginUsuariosControllers } from './Controller/LoginUsuario/LoginUsuariosControllers'
 
 import { estaAutenticado } from './middleware/estaAutenticado'
-
-
-
 const router = Router()
+const upload = multer(upLoandConfig.upload('./tmp'))
+
+
 //usuarios
 router.post('/CadastroUsuarios', new UsuariosControllers().cadastro_Usuarios)
 router.get('/ConsultarUsuarios', new UsuariosControllers().consultar_usuarios)
@@ -19,7 +22,7 @@ router.post('/ConsultarUsuariosUnico', estaAutenticado,  new UsuariosControllers
 router.delete('/ApagarUsuarios/:id', estaAutenticado, new UsuariosControllers().apagarUsuarios)
 router.put('/AlterarDadosUsuarios', estaAutenticado, new UsuariosControllers().alterarDadosUsuarios)
 //excursoes
-router.post('/CadastroExcursoes',  new ExcursoesControllers().cadastro_Excursoes)
+router.post('/CadastrarExcursoes',  new ExcursoesControllers().cadastro_Excursoes)
 router.get('/ConsultarExcursoes', estaAutenticado, new ExcursoesControllers().consultar_excursoes)
 //funcionarios
 router.post('/cadastroFuncionarios', estaAutenticado, new FuncionariosControllers().cadastro_Funcionarios)

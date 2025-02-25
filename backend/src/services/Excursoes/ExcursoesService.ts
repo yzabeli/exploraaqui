@@ -4,7 +4,7 @@ import prismaClient from "../../prisma";
 interface CadExcursoes{
     nome: string
     descricao: string
-    data: string
+    dia: string
     local: string
     preco: string
     disponibilidade: string
@@ -12,13 +12,13 @@ interface CadExcursoes{
 }
 
 class ExcursoesServices {
-    async adicionar_excursoes ({nome, descricao, data, local, preco, disponibilidade, banner}: CadExcursoes)
+    async adicionar_excursoes ({nome, descricao, dia, local, preco, disponibilidade, banner}: CadExcursoes)
     {
      const resposta = await prismaClient.cadExcursoes.create({
         data:{
             nome: nome,
             descricao: descricao,
-            data: data,
+            dia: dia,
             local: local,
             preco: preco,
             disponibilidade: disponibilidade,
@@ -32,7 +32,7 @@ class ExcursoesServices {
         select: {
             nome: true,
             descricao: true,
-            data: true,
+            dia: true,
             preco: true,
             banner: true
         }

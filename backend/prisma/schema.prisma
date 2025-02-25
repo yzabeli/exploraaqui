@@ -29,7 +29,7 @@ model CadExcursoes {
   id String @id @default(uuid())
   nome String
   descricao String
-  data String
+  dia String
   preco String
   local String
   disponibilidade String

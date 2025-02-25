@@ -11,6 +11,31 @@ export default function AuthProvider({children}){
  
     const autenticado = !!tokenT;
  
+
+    async function verificarToken() {
+        const iToken = localStorage.getItem('@token')
+        if (!iToken) {
+            setTokenT(false)
+            return
+        }
+        const tokenU = JSON.parse(iToken)
+        setToken(tokenU)
+        try {
+            const resposta = await apiLocal.get('/VerificarTokenUsuario', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            if (resposta.data.id) {
+                setTokenT(true)
+                localStorage.setItem('@id', JSON.stringify(resposta.data.id))
+                localStorage.setItem('@nome', JSON.stringify(resposta.data.nome))
+            }
+        } catch (err) {
+ 
+        }
+    }
+ 
     async function loginEntrada(email,senha){
  
         try {
@@ -41,7 +66,7 @@ export default function AuthProvider({children}){
  
     return(
  
-        <AutenticadoContexto.Provider value={({autenticado, loginEntrada})}>
+        <AutenticadoContexto.Provider value={({autenticado, loginEntrada, verificarToken, token})}>
  
             {children}
  

@@ -57,7 +57,7 @@ export default function DashBoard() {
                 :
                 <div className='conteinerDashboardGeral'>
                     <h1>Pagina de DashBoard</h1>
-                    <Link to={`/Excursao`}>Cadastrar Excursão</Link>
+                    <Link to={'/Excursao'} >Cadastrar Excursão</Link>
                     <table className='usuariosTabela'>
                         <thead>
                             <tr key="">
