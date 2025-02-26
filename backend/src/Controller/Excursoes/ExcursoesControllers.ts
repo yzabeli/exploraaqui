@@ -4,9 +4,8 @@ import { ExcursoesServices } from "../../services/Excursoes/ExcursoesService";
 class ExcursoesControllers{
     async cadastro_Excursoes (req: Request, res: Response){
         const {nome, descricao, dia, local, preco, disponibilidade} = req.body
-        if (!req.file) {
-            throw new Error('imagem com probelma')
-            
+        if(!req.file){
+            throw new Error('Imagem com problemas')
         }else{
             const { originalname, filename: banner} = req.file
             const excursoesService = new ExcursoesServices()

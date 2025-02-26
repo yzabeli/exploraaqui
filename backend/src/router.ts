@@ -22,7 +22,8 @@ router.post('/ConsultarUsuariosUnico', estaAutenticado,  new UsuariosControllers
 router.delete('/ApagarUsuarios/:id', estaAutenticado, new UsuariosControllers().apagarUsuarios)
 router.put('/AlterarDadosUsuarios', estaAutenticado, new UsuariosControllers().alterarDadosUsuarios)
 //excursoes
-router.post('/CadastrarExcursoes',  new ExcursoesControllers().cadastro_Excursoes)
+router.post('/CadastrarExcursoes', estaAutenticado,  upload.single('file'), new ExcursoesControllers().cadastro_Excursoes)
+
 router.get('/ConsultarExcursoes', estaAutenticado, new ExcursoesControllers().consultar_excursoes)
 //funcionarios
 router.post('/cadastroFuncionarios', estaAutenticado, new FuncionariosControllers().cadastro_Funcionarios)
