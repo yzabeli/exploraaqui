@@ -25,6 +25,15 @@ body {
     
 }
 
+.hero-section h1{
+    color: white;
+    
+}
+.hero-section p{
+    color: white;
+
+}
+
 .cta-button {
     background-color: #e74c3c; 
     color: white; 

@@ -39,6 +39,13 @@ class ExcursoesServices {
     })
     return resposta
 }
+async listarExcursao(){
+    const resposta = await prismaClient.cadExcursoes.findMany()
+    return resposta
+}
+
+
+
 
 
 }

@@ -27,6 +27,12 @@ class ExcursoesControllers{
         const resposta = await excursoesService.consultar_excursoes()
         return res.json(resposta)
     }
+    async listarExcursao(req: Request, res: Response){
+          const enviarDadosServices = new ExcursoesServices()
+          const resposta = await enviarDadosServices.listarExcursao()
+          return res.json(resposta)
+    }
+
     
 }
 export {ExcursoesControllers}

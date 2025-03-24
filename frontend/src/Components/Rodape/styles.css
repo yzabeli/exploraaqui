@@ -1,17 +1,17 @@
 footer {
-    background-color: rgb(0, 0, 0); /* Cor de fundo */
-    color: #fff; /* Cor do texto */
-    text-align: center; /* Centraliza o texto */
-    padding: 20px; /* Aumenta o espaçamento interno */
-    position: relative; /* Usado em combinação com bottom se necessário */
-    bottom: 0; /* Para alinhar ao fundo (pode ser removido se não for fixo) */
-    width: 100%; /* Ocupa toda a largura da tela */
-    margin-top: 20px; /* Espaçamento acima do rodapé */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Sombra superior para profundidade */
-    font-family: Arial, sans-serif; /* Fonte mais limpa */
+    background-color: rgba(0, 0, 0, 0.199); 
+    color: #fff; 
+    text-align: center; 
+    padding: 20px;  
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px; 
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); 
+    font-family: Arial, sans-serif;
+    position: fixed;
   }
   
   footer p {
-    margin: 0; /* Remove margens do parágrafo */
+    margin: 0; 
   }
   

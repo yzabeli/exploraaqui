@@ -7,8 +7,8 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
-  h1 {
-    color: #007bff;
+h1 {
+    color: #000000;
     margin-bottom: 20px;
     text-align: center;
   }
@@ -16,6 +16,7 @@
   .form-group {
     margin-bottom: 15px;
   }
+  
   
  
   
