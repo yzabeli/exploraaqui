@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';  // Importando useNavigate
 import './styles.css'; 
 import rio from '../imgs/rio.jpg';
 import noronha from '../imgs/noronha.jpg';
@@ -10,6 +10,7 @@ import { FiShoppingBag } from "react-icons/fi";
 
 const Inicio = () => {
   const [pacotesNoCarrinho, setPacotesNoCarrinho] = useState([]);
+  const navigate = useNavigate();  // Hook para navegação
 
   // Dados dos pacotes
   const pacotes = [
@@ -18,10 +19,11 @@ const Inicio = () => {
     { nome: 'Pacote Família', preco: 'R$ 3.199,00', descricao: '5 dias na Disney' },
   ];
 
-  // Função para adicionar pacotes ao carrinho
+  // Função para adicionar pacotes ao carrinho e redirecionar para a página de Reserva
   const adicionarAoCarrinho = (pacote) => {
     setPacotesNoCarrinho([...pacotesNoCarrinho, pacote]);
-    alert(`Pacote "${pacote.nome}" adicionado ao carrinho!`);
+    alert(`Você será redirecionado a página de reserva`);
+    navigate('/Reserva', { state: { pacotesNoCarrinho: [...pacotesNoCarrinho, pacote] } });  
   };
 
   return (

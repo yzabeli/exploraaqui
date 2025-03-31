@@ -1,16 +1,19 @@
+import e from "cors";
 import prismaClient from "../../prisma";
 
 interface FazerReserva{
-    data: string
+    nome: string
+    email: string
     idExcursao: string
     idUsuario: string
 }
 
 class ReservaService {
-    async fazer_reserva ({data, idExcursao, idUsuario}: FazerReserva){
+    async fazer_reserva ({nome, email, idExcursao, idUsuario}: FazerReserva){
         const resposta = await prismaClient.fazerReserva.create({
             data:{
-             data: data,
+             nome: nome,
+             email: email,
              idExcursao: idExcursao,
              idUsuario: idUsuario
             }
@@ -20,7 +23,7 @@ class ReservaService {
     async consultar_reserva(){
         const resposta = await prismaClient.fazerReserva.findMany({
             select: {
-                data: true
+                nome: true
             }
         })
         return resposta

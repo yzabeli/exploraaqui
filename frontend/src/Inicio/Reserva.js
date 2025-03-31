@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom'; 
 import './Reserva.css';
 import apiLocal from '../Api/index';
 
 const Reserva = () => {
+  const { state } = useLocation();  
+  const [email, setEmail] = useState('')
   const [excursao, setExcursao] = useState([]);
   const [idExcursao, setIdExcursao] = useState('');
   const [formData, setFormData] = useState({
-    nome: '',
     email: '',
     numeroPessoas: 1,
   });
+
+
+  
+
+  // Recebendo os pacotes do carrinho
+  const pacotesNoCarrinho = state?.pacotesNoCarrinho || [];
 
   useEffect(() => {
     async function listarExcursao() {
@@ -30,31 +37,29 @@ const Reserva = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Reserva feita com sucesso! Detalhes: ${JSON.stringify(formData, null, 2)}`);
+    alert(`Reserva Adicionada ao Carrinho! Detalhes: ${JSON.stringify(formData, null, 2)}`);
   };
 
   return (
     <div className="reserva-container">
       <h1>Faça sua Reserva</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Nome:</label>
-          <input
-            type="text"
-            name="nome"
-            value={formData.nome}
-            onChange={handleChange}
-            required
-          />
-        </div>
+      
+      <h3>Pacote Selecionado Anteriormente:</h3>
+      <ul>
+        {pacotesNoCarrinho.map((pacote, index) => (
+          <li key={index}>{pacote.nome} - {pacote.preco}</li>
+        ))}
+      </ul>
 
+      {/* Formulário de reserva */}
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>E-mail:</label>
           <input
             type="email"
             name="email"
             value={formData.email}
-            onChange={handleChange}
+            onChange={setEmail}
             required
           />
         </div>
@@ -87,6 +92,7 @@ const Reserva = () => {
 
         <button type="submit">Adicionar Reserva ao Carrinho</button>
       </form>
+
       <Link to="/" className="buttonVoltar">
         Voltar ao Início
       </Link>
