@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from 'react'
 import { AutenticadoContexto } from '../Contexts/authContext'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { Link } from 'react-router-dom'
 import apiLocal from '../Api/index'
 import './excursoes.css'
 
@@ -71,9 +70,9 @@ export default function Excursao() {
 
     return (
         <div className='conteinerGeralExcursoes'>
-    <h1>Produtos</h1>
+    <h1>Cadastro Excursões</h1>
     <form onSubmit={cadastrarExcursao}>
-        {/* Nome do produto */}
+    
         <label >Nome:</label>
         <input
             type="text"
@@ -82,7 +81,6 @@ export default function Excursao() {
             onChange={(e) => setNome(e.target.value)}
         />
 
-        {/* Preço do produto */}
         <label >Preço:</label>
         <input
             type="text"
@@ -91,7 +89,7 @@ export default function Excursao() {
             onChange={(e) => setPreco(e.target.value)}
         />
 
-        {/* Descrição do produto */}
+      
         <label >Descrição:</label>
         <textarea
             id="descricao"
@@ -99,8 +97,6 @@ export default function Excursao() {
             onChange={(e) => setDescricao(e.target.value)}
             placeholder="Insira a descrição do produto"
         />
-
-        {/* Dia da excursão */}
         <label >Dia da Excursão:</label>
         <input
             type="date"
@@ -109,7 +105,7 @@ export default function Excursao() {
             onChange={(e) => setDiaDaExcursao(e.target.value)}
         />
 
-        {/* Local */}
+
         <label >Local:</label>
         <input
             type="text"
@@ -119,7 +115,7 @@ export default function Excursao() {
             placeholder="Onde será a excursão?"
         />
 
-        {/* Disponibilidade */}
+       
         <label >Disponibilidade:</label>
         <select
             id="disponibilidade"
@@ -130,7 +126,7 @@ export default function Excursao() {
             <option value="indisponivel">Indisponível</option>
         </select>
 
-        {/* Banner */}
+     
         <label>Banner:</label>
         <input
             type="file"

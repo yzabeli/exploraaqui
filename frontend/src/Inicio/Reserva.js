@@ -51,7 +51,7 @@ const Reserva = () => {
         ))}
       </ul>
 
-      {/* Formulário de reserva */}
+   
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>E-mail:</label>
