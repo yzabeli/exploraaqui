@@ -36,6 +36,6 @@ router.get('/consultarFuncionarios', estaAutenticado, new FuncionariosController
  router.get('/consultarReserva', new ReservaControllers().consultar_reserva)
  //Roras de Login
 router.post('/LoginUsuarios', new LoginUsuariosControllers().loginUsuarios)
-router.get('/VerificarTokenUsuario', estaAutenticado, new LoginUsuariosControllers().verificaToken)
+router.get('/VerificaToken', estaAutenticado, new LoginUsuariosControllers().verificaToken)
 
 export default router

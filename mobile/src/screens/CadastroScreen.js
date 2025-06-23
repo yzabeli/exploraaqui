@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, SafeAreaView, StatusBar, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import apiLocal from '../../api/apiLocal';
+import apiLocal from '../api/apiLocal';
 import styles from '../styles/styles';
 
 export default function CadastroScreen({}) {

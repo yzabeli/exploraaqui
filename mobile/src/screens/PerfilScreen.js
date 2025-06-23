@@ -56,7 +56,7 @@ export default function PerfilScreen() {
         {/* Foto e nome */}
         <View style={{ alignItems: 'center', marginBottom: 30 }}>
           <Image
-            source={require('../../src/components/assets/imagens/Mídia.jpg')}
+            source={require('../../src/assets/Mídia.jpg')}
             style={{
               width: 120,
               height: 120,

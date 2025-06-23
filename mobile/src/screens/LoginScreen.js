@@ -2,29 +2,26 @@ import React, { useState, useContext } from 'react';
 import { View, Text, SafeAreaView, StatusBar, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { AutenticadoContexto } from '../Context/authContext';
+import { AutenticadoContexto } from '../Context/authContexts';
 import styles from '../styles/styles';
 
-export default function LoginScreen({ navigation }) {
+
+export default function LoginScreen() {
   const { loginEntrada } = useContext(AutenticadoContexto)
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
-  
-  async function dadosLogin() {
-    if (!email || !senha) {
-      console.log("Prencha todos os campos");
-      return
-    }
+  async function dadosLogin(e) {
+    e.preventDefault();
     try {
-      await AsyncStorage.setItem('@nome', JSON.stringify(nome))
-      await loginEntrada(email, senha)
-    
+      if (!email || !senha) {
+        console.log("Prencha todos os campos");
+      };
+      await loginEntrada(email, senha);
     } catch (err) {
       console.log(err);
-    }
-    
-  }
+    };
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -63,10 +60,10 @@ export default function LoginScreen({ navigation }) {
         </TouchableOpacity>
       </View>
       <View>
-                      <TouchableOpacity onPress={() => navigation.navigate('CadastroScreen')}>
-                      <Text style={styles.buttonPageRegistrar}>Não tem uma conta ? Clique<Text style={styles.greenButton}> aqui</Text></Text>
-                      </TouchableOpacity>
-                  </View>
+        <TouchableOpacity onPress={() => navigation.navigate('CadastroScreen')}>
+          <Text style={styles.buttonPageRegistrar}>Não tem uma conta ? Clique<Text style={styles.greenButton}> aqui</Text></Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
