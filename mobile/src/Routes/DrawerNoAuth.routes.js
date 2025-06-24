@@ -7,6 +7,8 @@ import Sair from '../components';
 //import Produtos from '../Screens/Dashboard';
 import Perfil from '../screens/PerfilScreen';
 import HomeScreen from '../screens/HomeScreen';
+import CadastroHome from '../screens/CadastroScreen'
+import LoginScreen from '../screens/LoginScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -14,16 +16,17 @@ export default function DrawerNoAuth() {
     return (
         <Drawer.Navigator
             screenOptions={{
-                title: '',
+                title: 'Explora Aqui',
                 headerStyle: {
-                    backgroundColor: '#000',
+                    backgroundColor: '#001F3F',
                 },
-                headerTintColor: '#FFA600',
+                headerTintColor: 'white',
                 drawerStyle: {
-                    backgroundColor: '#000',
+                    backgroundColor: '#334155',
                 },
-                drawerInactiveTintColor: '#FFA600',
-                drawerActiveBackgroundColor: '#FFA600',
+                drawerInactiveTintColor: 'white',
+                drawerActiveBackgroundColor: 'white',
+
                 drawerActiveTintColor: '#000',
                 headerRight: () => <Sair />,
             }}
@@ -32,24 +35,33 @@ export default function DrawerNoAuth() {
                 name='Home'
                 component={HomeScreen}
                 options={{
-                    drawerIcon: ({ color, size }) => <Feather name="user" color={color} size={size} />,
-                    drawerLabel: 'Perfil'
+                    drawerIcon: ({ color, size }) => <Feather name="map" color={color} size={size} />,
+                    drawerLabel: 'Home'
                 }}
             />
-            {/* <Drawer.Screen
-               name='Produtos'
-               component={Produtos}
-               options={{
-                   drawerIcon: ({ color, size }) => <Feather name="home" color={color} size={size} />,
-                   drawerLabel: 'Home'
-               }}
-            /> */}
+            <Drawer.Screen
+                name='Cadastro'
+                component={CadastroHome}
+                options={{
+                    drawerIcon: ({ color, size }) => <Feather name="user" color={color} size={size} />,
+                    drawerLabel: 'Cadastro'
+                }}
+            />
+           
             <Drawer.Screen
                 name='Profile'
                 component={Perfil}
                 options={{
-                    drawerIcon: ({ color, size }) => <Feather name="user" color={color} size={size} />,
+                    drawerIcon: ({ color, size }) => <Feather name="smile" color={color} size={size} />,
                     drawerLabel: 'Perfil'
+                }}
+            />
+            <Drawer.Screen
+                name='login'
+                component={LoginScreen}
+                options={{
+                    drawerIcon: ({ color, size }) => <Feather name="log-in" color={color} size={size} />,
+                    drawerLabel: 'Faça login'
                 }}
             />
         </Drawer.Navigator>

@@ -9,7 +9,7 @@ export default function Sair() {
 
     return (
         <TouchableOpacity onPress={logout} style={{ marginRight: 15 }}>
-            <Feather name="log-out" size={24} color="#FFA600" />
+            <Feather name="log-out" size={24} color="white" />
         </TouchableOpacity>
     );
 };

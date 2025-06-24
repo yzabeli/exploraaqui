@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { View, Text, SafeAreaView, StatusBar, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AutenticadoContexto } from '../Context/authContexts';
 import styles from '../styles/styles';
 
@@ -26,11 +25,6 @@ export default function LoginScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor="#001F3F" barStyle="light-content" />
-
-      <View style={styles.header}>
-        <Text style={styles.headerText}>EXPLORA AQUI</Text>
-        <Ionicons name="home-outline" size={24} color="white" />
-      </View>
 
       <View style={{ padding: 20 }}>
         <Text style={{ fontSize: 22, fontWeight: 'bold', textAlign: 'center', marginBottom: 20 }}>
